@@ -1,0 +1,31 @@
+server:
+  port: ${port:8080}
+
+spring:
+  application:
+    name: Roche application
+  datasource:
+    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    driverClassName: org.h2.Driver
+    username: sa
+    password: sa
+  h2:
+    console:
+      enabled: true
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
+  data:
+    jpa:
+      repositories:
+        bootstrap-mode: default
+    mongodb:
+      host: localhost
+      port: 27017
+      database: order-database
+      username: order
+      password: order
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
